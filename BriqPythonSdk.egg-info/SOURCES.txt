@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+BriqPythonSdk/__init__.py
+BriqPythonSdk/client.py
+BriqPythonSdk.egg-info/PKG-INFO
+BriqPythonSdk.egg-info/SOURCES.txt
+BriqPythonSdk.egg-info/dependency_links.txt
+BriqPythonSdk.egg-info/requires.txt
+BriqPythonSdk.egg-info/top_level.txt
