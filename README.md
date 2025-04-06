@@ -5,7 +5,7 @@ A Python SDK for interacting with the Briq messaging API.
 ## Installation
 
 ```bash
-pip install briq-sdk
+pip install BriqPythonSdk
 ```
 
 Or install from source:
