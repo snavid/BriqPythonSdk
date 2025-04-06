@@ -1,6 +1,6 @@
 # Briq SDK
 
-A Python SDK for interacting with the Briq messaging API.
+A Python SDK for interacting with the Briq messaging platform.
 
 ## Installation
 
