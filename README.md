@@ -1,124 +1,70 @@
-# Briq SDK
+# Briq Python Client
 
-A Python SDK for interacting with the Briq messaging platform.
+A Python client library for the Briq messaging platform API.
+
+## Overview
+
+The Briq Python client provides a simple and intuitive interface to interact with the Briq messaging platform API. It allows you to manage workspaces, campaigns, and send messages programmatically from your Python applications.
 
 ## Installation
 
-```bash
-pip install BriqPythonSdk
-```
-
-Or install from source:
+You can install the Briq client library using pip:
 
 ```bash
-git clone https://github.com/snavid/briq-sdk.git
-cd briq-sdk
-pip install -e .
+pip install briq
 ```
 
-## Usage
+## Requirements
 
-### Authentication
+- Python 3.7 or higher
+- requests
+- python-dotenv
+
+## Authentication
+
+The Briq client requires an API key for authentication. You can provide your API key in several ways:
+
+1. Set it in your environment as `BRIQ_API_KEY`
+2. Store it in a `.env` file in your project directory
+3. Pass it directly when initializing the client
+
+Example `.env` file:
+```
+BRIQ_API_KEY=your_api_key_here
+```
+
+## Quick Start
 
 ```python
-from BriqPythonSdk import BriqClient
+import briq
 
-# Initialize the client
-client = BriqClient(
-    username="your_username",
-    password="your_password"
+# Initialize the client (will load API key from environment or .env file)
+client = briq.Client()
+
+# Or set the API key manually
+client.set_api_key("your_api_key_here")
+
+# Create a workspace
+workspace = client.workspace.create(
+    name="My Workspace",
+    description="A workspace for my messaging campaigns"
+)
+
+# List all workspaces
+workspaces = client.workspace.list()
+
+# Send an instant message
+result = client.message.send_instant(
+    content="Hello from the Briq Python client!",
+    recipients=["255788344348"],
+    sender_id="my-sender-id"
 )
 ```
 
-### Get Workspaces
+## Documentation
 
-Retrieve all workspaces accessible to the authenticated user:
-
-```python
-workspaces = client.get_workspaces()
-print(workspaces)
-```
-
-### Send a Message
-
-Send an instant message to one or more recipients:
-
-```python
-response = client.send_message(
-    workspace_id="your_workspace_id",
-    recipients=["+255788344348"],
-    content="Your message content here",
-    sender_id="YourSenderId"
-)
-print(response)
-```
-
-## Error Handling
-
-The SDK provides specific exceptions for different types of errors:
-
-```python
-from BriqPythonSdk import BriqAuthenticationError, BriqAPIError, BriqMessageError
-
-try:
-    response = client.send_message(...)
-except BriqAuthenticationError as e:
-    print(f"Authentication error: {e}")
-except BriqMessageError as e:
-    print(f"Message sending error: {e}")
-except BriqAPIError as e:
-    print(f"API error: {e}")
-```
-
-## API Reference
-
-### BriqClient
-
-```python
-BriqClient(username: str, password: str)
-```
-
-**Parameters:**
-- `username`: The username for authentication
-- `password`: The password for authentication
-
-#### Methods
-
-##### get_workspaces()
-
-```python
-get_workspaces() -> List[Dict[str, str]]
-```
-
-**Returns:**
-- List of workspace objects containing details like workspace_id and available sender IDs
-
-**Raises:**
-- `BriqAPIError`: If retrieving workspaces fails
-
-##### send_message()
-
-```python
-send_message(
-    workspace_id: str,
-    recipients: List[str],
-    content: str,
-    sender_id: str
-) -> Dict[str, Any]
-```
-
-**Parameters:**
-- `workspace_id`: The ID of the workspace
-- `recipients`: List of recipient phone numbers (with country code)
-- `content`: The message content
-- `sender_id`: The sender ID to display
-
-**Returns:**
-- The API response as a dictionary
-
-**Raises:**
-- `BriqMessageError`: If sending the message fails
+For detailed documentation and examples, please refer to the [Usage Guide](docs/usage.md) and [API Reference](docs/api_reference.md).
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
