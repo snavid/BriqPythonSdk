@@ -16,7 +16,7 @@ class TestClient(unittest.TestCase):
         # Test client initialization
         self.assertIsNotNone(self.client)
         self.assertEqual(self.client.config.api_key, "test_api_key")
-        self.assertEqual(self.client.config.base_url, "http://143.198.159.135:8000")
+        self.assertEqual(self.client.config.base_url, "http://karibu.briq.tz")
         
         # Test initialization with custom base URL
         client = Client(api_key="test_api_key", base_url="http://custom-url")
@@ -42,7 +42,7 @@ class TestClient(unittest.TestCase):
         # Verify request was made correctly
         mock_request.assert_called_once_with(
             method="GET",
-            url="http://143.198.159.135:8000/v1/test/endpoint",
+            url="http://karibu.briq.tz/v1/test/endpoint",
             headers=self.client.config.headers,
             json=None,
             params=None

@@ -98,7 +98,7 @@ try:
 except BriqRequestError as e:
     print(f"Request error: {e}")
     # Handle request error (e.g., retry with correct URL)
-    client.config.base_url = "http://143.198.159.135:8000"
+    client.config.base_url = "http://karibu.briq.tz"
     workspaces = client.workspace.list()
 ```
 

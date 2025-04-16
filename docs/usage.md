@@ -68,7 +68,7 @@ client = briq.Client()
 # Or specify API key and base URL explicitly
 client = briq.Client(
     api_key="your_api_key_here",
-    base_url="http://143.198.159.135:8000"
+    base_url="http://karibu.briq.tz"
 )
 ```
 

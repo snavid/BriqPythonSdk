@@ -30,7 +30,7 @@ class Config:
             load_dotenv(dotenv_path=env_path)
         
         self._api_key = api_key or os.environ.get('BRIQ_API_KEY')
-        self._base_url = base_url or os.environ.get('BRIQ_BASE_URL', 'http://143.198.159.135:8000')
+        self._base_url = base_url or os.environ.get('BRIQ_BASE_URL', 'http://karibu.briq.tz')
     
     @property
     def api_key(self):
