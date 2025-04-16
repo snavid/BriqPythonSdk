@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="BriqPythonSdk",
-    version="0.1.0",
-    author="snavid",
-    author_email="snavidux.official@gmail.com",
-    description="Python SDK for the Briq messaging API",
+    name="briq",
+    version="0.0.7",
+    author="Briq Team",
+    author_email="sms@briq.tz",
+    description="Python client for the Briq messaging platform API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/snavid/BriqPythonSdk",
+    url="https://github.com/BRIQ-BLOCK/BriqPythonSdk",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -25,5 +25,6 @@ setup(
     python_requires=">=3.7",
     install_requires=[
         "requests>=2.25.0",
+        "python-dotenv>=0.15.0",
     ],
 )
